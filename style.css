@@ -128,7 +128,6 @@ h1 {
     gap: 1.5rem;
 }
 
-/* --- Modifiez cette classe existante --- */
 .card {
     background: var(--white);
     /* padding: 2rem;  <-- SUPPRIMEZ CETTE LIGNE (très important) */
@@ -140,8 +139,6 @@ h1 {
     display: flex;
     flex-direction: column;
 }
-
-/* --- Ajoutez ces nouvelles classes --- */
 
 .card-img-wrapper {
     width: 100%;
@@ -208,6 +205,69 @@ h1 {
     margin-top: auto; 
     display: flex;
     gap: 1.5rem;
+}
+
+/* --- MISE EN PAGE 2 COLONNES (Resume) --- */
+.resume-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 50% gauche, 50% droite */
+    gap: 4rem; /* Espace entre les deux colonnes */
+    align-items: start;
+}
+
+/* --- SECTION SKILLS --- */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); /* Grille auto-adaptative */
+    gap: 1.5rem;
+}
+
+/* Définition de l'animation Gelée */
+@keyframes jelly {
+    0% { transform: scale(1, 1); }
+    30% { transform: scale(1.25, 0.75); } /* S'écrase */
+    40% { transform: scale(0.75, 1.25); } /* S'étire */
+    50% { transform: scale(1.15, 0.85); }
+    65% { transform: scale(0.95, 1.05); }
+    75% { transform: scale(1.05, 0.95); }
+    100% { transform: scale(1, 1); }
+}
+
+.skill-card {
+    background-color: var(--white);
+    padding: 1.5rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+    border: 1px solid transparent;
+    cursor: pointer;
+    /* Important : transition pour la couleur, mais pas pour la transfo ici */
+    transition: background 0.3s, border-color 0.3s; 
+}
+
+.skill-card i {
+    font-size: 3rem;
+    color: var(--text-gray);
+    transition: color 0.3s;
+}
+
+/* L'animation se déclenche au survol */
+.skill-card:hover {
+    animation: jelly 0.6s both; /* L'animation dure 0.6s */
+    border-color: var(--primary);
+    background-color: #fdf2f8; /* Fond légèrement rosé */
+}
+
+.skill-card:hover i {
+    color: inherit; /* Prend sa couleur officielle */
+}
+
+/* --- RESPONSIVE MOBILE --- */
+@media (max-width: 768px) {
+    .resume-container {
+        grid-template-columns: 1fr; /* Une seule colonne sur mobile */
+        gap: 3rem;
+    }
 }
 
 /* --- FOOTER --- */
