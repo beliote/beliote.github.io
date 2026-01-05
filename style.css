@@ -1,9 +1,9 @@
 /* --- CONFIGURATION DES COULEURS (C'est ici qu'on change le rose !) --- */
 :root {
-    /* Le rose principal (vibrant) */
+    /* Le rose principal */
     --primary: #db2777; 
     
-    /* Un rose très clair pour le fond de la page (subtil) */
+    /* Un rose très clair pour le fond de la page */
     --bg-soft: #fdf2f8; 
     
     /* Couleur du texte foncé */
@@ -27,15 +27,84 @@ body {
     color: var(--text-dark);
     font-family: var(--font);
     line-height: 1.6;
-    padding: 2rem 1rem;
+    padding: 6rem 1rem 2rem 1rem;
 }
 
 a { text-decoration: none; color: inherit; transition: 0.3s; }
 
 /* --- LAYOUT --- */
 .container {
-    max-width: 900px; /* Largeur contenue comme sur le modèle */
+    max-width: 900px;
     margin: 0 auto;
+}
+
+/* --- NAVBAR FIXE --- */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; 
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px); /* Pour Safari */
+    
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    padding: 0.8rem 0;
+}
+
+.nav-content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--text-dark);
+}
+.logo span { color: var(--primary); }
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nav-links a {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--text-gray);
+    transition: color 0.3s;
+}
+
+.nav-links a:hover { color: var(--primary); }
+
+/* Bouton CV spécial dans la navbar */
+.btn-nav {
+    background-color: var(--primary);
+    color: white !important;
+    padding: 0.5rem 1.2rem;
+    border-radius: 50px;
+    font-size: 0.85rem !important;
+    transition: transform 0.2s;
+}
+
+.btn-nav:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+    box-shadow: 0 4px 10px rgba(219, 39, 119, 0.3);
+}
+
+/* --- AJUSTEMENT RESPONSIVE --- */
+@media (max-width: 768px) {
+    .nav-links { display: none; }
+    .nav-content { justify-content: center; }
 }
 
 /* --- SECTION HERO (Carte principale) --- */
@@ -120,6 +189,10 @@ h1 {
 .social-links a:hover { color: var(--primary); text-decoration: underline; }
 
 /* --- SECTION PROJETS --- */
+.projects-section {
+    margin-bottom: 4rem;
+}
+
 .section-title { font-size: 2rem; margin-bottom: 2rem; }
 
 .grid {
@@ -130,12 +203,11 @@ h1 {
 
 .card {
     background: var(--white);
-    /* padding: 2rem;  <-- SUPPRIMEZ CETTE LIGNE (très important) */
-    padding: 0; /* On met le padding à 0 pour que l'image touche les bords */
+    padding: 0; 
     border-radius: 15px;
     transition: transform 0.3s;
     border: 1px solid rgba(0,0,0,0.05);
-    overflow: hidden; /* Important pour que l'image respecte les bords arrondis */
+    overflow: hidden; 
     display: flex;
     flex-direction: column;
 }
@@ -225,8 +297,8 @@ h1 {
 /* Définition de l'animation Gelée */
 @keyframes jelly {
     0% { transform: scale(1, 1); }
-    30% { transform: scale(1.25, 0.75); } /* S'écrase */
-    40% { transform: scale(0.75, 1.25); } /* S'étire */
+    30% { transform: scale(1.25, 0.75); }
+    40% { transform: scale(0.75, 1.25); }
     50% { transform: scale(1.15, 0.85); }
     65% { transform: scale(0.95, 1.05); }
     75% { transform: scale(1.05, 0.95); }
@@ -241,7 +313,6 @@ h1 {
     box-shadow: 0 5px 15px rgba(0,0,0,0.03);
     border: 1px solid transparent;
     cursor: pointer;
-    /* Important : transition pour la couleur, mais pas pour la transfo ici */
     transition: background 0.3s, border-color 0.3s; 
 }
 
@@ -251,15 +322,14 @@ h1 {
     transition: color 0.3s;
 }
 
-/* L'animation se déclenche au survol */
 .skill-card:hover {
-    animation: jelly 0.6s both; /* L'animation dure 0.6s */
+    animation: jelly 0.7s both;
     border-color: var(--primary);
-    background-color: #fdf2f8; /* Fond légèrement rosé */
+    background-color: #fdf2f8;
 }
 
 .skill-card:hover i {
-    color: inherit; /* Prend sa couleur officielle */
+    color: inherit;
 }
 
 /* --- RESPONSIVE MOBILE --- */
@@ -287,7 +357,7 @@ footer { text-align: center; margin-top: 4rem; color: var(--text-gray); font-siz
 .timeline-section { margin-bottom: 4rem; }
 
 .timeline {
-    border-left: 3px solid var(--bg-soft); /* La ligne verticale */
+    border-left: 3px solid var(--bg-soft);
     margin-left: 1rem;
     padding-left: 2rem;
     position: relative;
@@ -302,19 +372,19 @@ footer { text-align: center; margin-top: 4rem; color: var(--text-gray); font-siz
 .timeline-item::before {
     content: '';
     position: absolute;
-    left: -2.6rem; /* Ajustement pour centrer sur la ligne */
+    left: -2.6rem;
     top: 0.5rem;
     width: 1rem;
     height: 1rem;
     background-color: var(--primary);
     border-radius: 50%;
-    border: 3px solid var(--white); /* Petit bord blanc pour faire propre */
+    border: 3px solid var(--white);
     box-shadow: 0 0 0 3px rgba(219, 39, 119, 0.2);
 }
 
 .timeline-date {
     display: inline-block;
-    background-color: #fdf2f8; /* Rose très clair */
+    background-color: #fdf2f8;
     color: var(--primary);
     font-weight: 700;
     font-size: 0.85rem;
@@ -327,27 +397,23 @@ footer { text-align: center; margin-top: 4rem; color: var(--text-gray); font-siz
 .timeline-content h4 { font-size: 1rem; color: var(--text-gray); font-weight: 500; margin-bottom: 0.5rem; }
 
 /* --- ANIMATIONS SYMPAS --- */
-
-/* 1. Zoom sur l'image du projet au survol */
 .card-img-wrapper img {
-    transition: transform 0.5s ease; /* Transition douce */
+    transition: transform 0.5s ease;
 }
 .card:hover .card-img-wrapper img {
-    transform: scale(1.1); /* Zoom léger */
+    transform: scale(1.1);
 }
 
-/* 2. Flottement de la photo de profil */
 @keyframes float {
     0% { transform: translateY(0px) rotate(3deg); }
-    50% { transform: translateY(-10px) rotate(3deg); } /* Monte de 10px */
+    50% { transform: translateY(-10px) rotate(3deg); }
     100% { transform: translateY(0px) rotate(3deg); }
 }
 
 .hero-image img {
-    animation: float 5s ease-in-out infinite; /* Flotte indéfiniment */
+    animation: float 5s ease-in-out infinite;
 }
 
-/* 3. Classes pour l'apparition au Scroll (JS requis) */
 .reveal {
     opacity: 0;
     transform: translateY(30px);
@@ -357,4 +423,65 @@ footer { text-align: center; margin-top: 4rem; color: var(--text-gray); font-siz
 .reveal.active {
     opacity: 1;
     transform: translateY(0);
+}
+
+
+/* --- SECTION CONTACT --- */
+.contact-section {
+    margin-bottom: 4rem;
+    width: 100%; 
+}
+
+.contact-container {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    border: 1px solid rgba(0,0,0,0.05);
+    max-width: 100%; 
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+/* Style des labels */
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    font-size: 0.9rem;
+}
+
+/* Style des champs (Input & Textarea) */
+.form-group input, 
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border-radius: 10px;
+    border: 2px solid #e2e8f0;
+    background-color: var(--bg-soft);
+    font-family: var(--font);
+    font-size: 1rem;
+    color: var(--text-dark);
+    transition: all 0.3s;
+    outline: none;
+}
+
+/* Au clic (Focus), la bordure devient rose */
+.form-group input:focus, 
+.form-group textarea:focus {
+    border-color: var(--primary);
+    background-color: var(--white);
+    box-shadow: 0 0 0 4px rgba(219, 39, 119, 0.1);
+}
+
+/* Le bouton envoyer */
+.btn-submit {
+    width: 100%;
+    cursor: pointer;
+    border: none;
+    font-size: 1rem;
+    margin-top: 1rem;
 }
