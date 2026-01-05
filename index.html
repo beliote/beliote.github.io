@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;500;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <main class="container">
+        
+        <section class="hero-card">
+            <div class="hero-content">
+                <span class="badge">Engineering student</span>
+                <h1><span class="gradient-text">Burgalat Eliot</span></h1>
+                <h2>20 years old</h2>
+                <p>Welcome ! I'm a french student studying software development at IMT Atlantique</p>
+                <p>I'm looking for a 4 month internship starting in April 2024</p>
+                
+                <div class="buttons-group">
+                    <a href="#projets" class="btn btn-primary">Projects</a>
+                    <a href="assets/BurgalatEliot_CV.pdf" target="_blank" class="btn btn-outline">Resume</a>
+                </div>
+                
+                <div class="social-links">
+                    <a href="https://github.com/beliote" target="_blank">GitHub</a>
+                    <a href="https://www.linkedin.com/in/eliot-burgalat/" target="_blank">LinkedIn</a>
+                    <a href="mailto:eliot.burgalat@imt-atlantique.net">eliot.burgalat@imt-atlantique.net</a>
+                </div>
+            </div>
+            
+            <div class="hero-image">
+                <img src="assets/pdp.jpeg" alt="Ma photo de profil">
+            </div>
+        </section>
+
+        <section id="parcours" class="timeline-section">
+            <h2 class="section-title reveal">Education</h2>
+            
+            <div class="timeline">
+                
+                <div class="timeline-item reveal">
+                    <span class="timeline-date">2024 - Today</span>
+                    <div class="timeline-content">
+                        <h3>Student in Software development</h3>
+                        <h4>IMT Atlantique - Nantes</h4>
+                    </div>
+                </div>
+
+                <div class="timeline-item reveal">
+                    <span class="timeline-date">2022 - 2024</span>
+                    <div class="timeline-content">
+                        <h3>CPGE MP2I (2y intensive program in Mathematics & Computer Sciences)</h3>
+                        <h4>Lycée Pierre de Fermat - Toulouse</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projets" class="projects-section">
+            <h2 class="section-title">My Projects</h2>
+            
+            <div class="grid">
+                <article class="card">
+                    <div class="card-img-wrapper">
+                        <img src="assets/Integration.png" alt="Illustration">
+                    </div>
+
+                    <div class="card-body">
+                        <h3>Integration of students</h3>
+                        <p>Multilingual website providing information and contact details for new students</p>
+                        <div class="tags">
+                            <span>HTML/CSS</span>
+                            <span>JavaScript</span>
+                        </div>
+                        <div class="card-links">
+                            <a href="https://inteimtatlantique.resel.fr/?lang=fr" class="link-arrow">Demonstration &rarr;</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="card-img-wrapper">
+                        <img src="assets/ChessBot.png" alt="Illustration">
+                    </div>
+
+                    <div class="card-body">
+                        <h3>Chess Bot</h3>
+                        <p>Development of a competitive chess engine using a hybrid approach (NNUE + Classic)</p>
+                        <div class="tags">
+                            <span>C++</span>
+                            <span>API</span>
+                            <span>Machine Learning</span>
+                            <span>Data Engineering</span>
+                        </div>
+                        <div class="card-links">
+                            <a href="https://github.com/beliote/ChessBot" class="link-arrow">Code &rarr;</a>
+                            <a href="https://lichess.org/@/BrouetteBot" class="link-arrow">Bot &rarr;</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="card-img-wrapper">
+                        <img src="assets/BDE.png" alt="Screenshot">
+                    </div>
+
+                    <div class="card-body">
+                        <h3>IMT'emporel Website</h3>
+                        <p>Website for our student union list for event management and orders</p>
+                        <div class="tags">
+                            <span>HTML/CSS</span>
+                            <span>JavaScript</span>
+                            <span>SQL</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="card-img-wrapper">
+                        <img src="assets/TIPE.png" alt="Screenshot">
+                    </div>
+
+                    <div class="card-body">
+                        <h3>Ray Marching Software</h3>
+                        <p>Student project to create comprehensive ray marching software in C</p>
+                        <div class="tags">
+                            <span>C</span>
+                            <span>Python</span>
+                            <span>Multithreading</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+    </main>
+
+<script>
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    });
+
+    const hiddenElements = document.querySelectorAll('.reveal');
+    hiddenElements.forEach((el) => observer.observe(el));
+</script>
+
+</body>
+</html>
