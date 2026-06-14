@@ -11,22 +11,5 @@ Bienvenue sur le dépôt de mon portfolio personnel. Ce site présente mon parco
 * **JavaScript**
 * **Design** : "Mobile First" et responsive.
 
-## 🚀 Fonctionnalités
-
-* Design moderne et minimaliste.
-* Mode sombre (Dark Theme) par défaut.
-* Animations fluides au défilement et au survol.
-* Section Projets dynamique.
-
-## 📦 Installation locale
-
-Si vous souhaitez cloner ce projet pour le tester localement :
-
-1.  Clonez le dépôt :
-    ```bash
-    git clone [https://github.com/beliote/beliote.github.io.git](https://github.com/beliote/beliote.github.io.git)
-    ```
-2.  Ouvrez le fichier `index.html` dans votre navigateur.
-
 ---
 *Codé par Eliot Burgalat.*

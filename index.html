@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/vendor/chess/chessboard-1.0.0.min.css">
 </head>
 <body>
 
@@ -19,6 +20,7 @@
                     <li><a href="#parcours">Education</a></li>
                     <li><a href="#parcours">Skills</a></li>
                     <li><a href="#projets">Projects</a></li>
+                    <li><a href="#passions">Hobbies</a></li>
                     <li><a href="#contact">Contact</a></li>
                     <li><a href="assets/BurgalatEliot_CV.pdf" target="_blank" class="btn-nav">Resume</a></li>
                 </ul>
@@ -33,7 +35,7 @@
                 <span class="badge">Engineering student</span>
                 <h1><span class="gradient-text">Burgalat Eliot</span></h1>
                 <p>Welcome ! I'm a french student studying software development at IMT Atlantique</p>
-                <p>I'm looking for a 4 month international internship starting in April 2026</p>
+                <p>I'm looking for a 6 month internship starting in April 2027</p>
                 
                 <div class="buttons-group">
                     <a href="#projets" class="btn btn-primary">Projects</a>
@@ -58,9 +60,17 @@
                 <div class="column-education reveal">
                     <h2 class="section-title">Education</h2>
                     <div class="timeline">
+
+                        <div class="timeline-item">
+                            <span class="timeline-date">Sep 2026 - Jan 2027</span>
+                            <div class="timeline-content">
+                                <h3>Student in Machine Learning</h3>
+                                <h4>Polytechnique Montreal</h4>
+                            </div>
+                        </div>
                         
                         <div class="timeline-item">
-                            <span class="timeline-date">2024 - Today</span>
+                            <span class="timeline-date">Sep 2024 - Jun 2027</span>
                             <div class="timeline-content">
                                 <h3>Student in Software development</h3>
                                 <h4>IMT Atlantique - Nantes</h4>
@@ -68,18 +78,10 @@
                         </div>
 
                         <div class="timeline-item">
-                            <span class="timeline-date">2022 - 2024</span>
+                            <span class="timeline-date">Sep 2022 - Jun 2024</span>
                             <div class="timeline-content">
                                 <h3>CPGE MP2I</h3>
                                 <h4>Lycée Pierre de Fermat - Toulouse</h4>
-                            </div>
-                        </div>
-
-                        <div class="timeline-item">
-                            <span class="timeline-date">2021 - 2022</span>
-                            <div class="timeline-content">
-                                <h3>French Baccalaureate</h3>
-                                <h4>Lycée Louis Barthou - Pau</h4>
                             </div>
                         </div>
                     </div>
@@ -232,6 +234,102 @@
             </div>
         </section>
 
+        <section id="passions" class="passions-section">
+            <h2 class="section-title">My Hobbies</h2>
+
+            <div class="passions-carousel reveal" id="passions-carousel">
+                <div class="passions-carousel-viewport" tabindex="0" aria-roledescription="carousel">
+                    <div class="passions-carousel-track">
+
+                        <article class="passions-carousel-slide" data-state="active">
+                            <div class="passion-card-content">
+                                <div class="passion-card-chess">
+                                    <header class="passion-card-header">
+                                        <h3 class="passion-card-title">Chess</h3>
+                                        <div class="passion-puzzle-bar">
+                                            <p class="passion-daily">Lichess Daily Puzzle</p>
+                                            <p class="puzzle-hint" id="puzzle-hint">Loading…</p>
+                                        </div>
+                                    </header>
+
+                                    <div class="passion-card-body">
+                                        <div class="passion-text">
+                                            <p>
+                                                I have been passionate about chess since I was a child, and I compete at the highest level both as part of a team with my club in Pau and as an individual in major international tournaments.
+                                            </p>
+                                            <p>
+                                                Elo : 2219F
+                                            </p>
+                                            <a href="https://ratings.fide.com/profile/36068659" target="_blank" rel="noopener" class="link-arrow">FIDE profile &rarr;</a>
+                                        </div>
+
+                                        <div class="passion-board">
+                                            <div class="puzzle-board-wrap">
+                                                <div id="puzzle-board"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="passions-carousel-slide">
+                            <div class="passion-card-content">
+                                <div class="passion-card-chess passion-card-sports">
+                                    <header class="passion-card-header">
+                                        <h3 class="passion-card-title">Sports</h3>
+                                    </header>
+
+                                    <div class="passion-sports-copy">
+                                        <p>
+                                            I have practised several sports over the years, principaly tennis, table tennis and volleyball. I still enjoy staying active whenever I can.
+                                        </p>
+                                        <p>
+                                            I also enjoy running, both long and short distances. I have participated in many races, including the Toulouse Marathon in November 2025.
+                                        </p>
+                                        <ul class="passion-sports-list" id="passion-sports-list">
+                                            <li data-sport="tennis" tabindex="0">Tennis</li>
+                                            <li data-sport="table-tennis" tabindex="0">Table tennis</li>
+                                            <li data-sport="volleyball" tabindex="0">Volleyball</li>
+                                            <li data-sport="marathon" tabindex="0">Running</li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="passion-sports-stage" id="passion-sports-stage" aria-live="polite">
+                                        <img class="passion-sports-anim" data-sport="tennis" src="assets/sports/tennis.png" alt="Tennis stick figure" hidden>
+                                        <img class="passion-sports-anim" data-sport="table-tennis" src="assets/sports/table-tennis.png" alt="Table tennis stick figure" hidden>
+                                        <img class="passion-sports-anim" data-sport="volleyball" src="assets/sports/volleyball.png" alt="Volleyball stick figure" hidden>
+                                        <img class="passion-sports-anim" data-sport="marathon" src="assets/sports/marathon.png" alt="Running stick figure" hidden>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="passions-carousel-slide">
+                            <div class="passion-card-content">
+                                <div class="passion-card-chess passion-card-travel">
+                                    <header class="passion-card-header">
+                                        <h3 class="passion-card-title">Travel</h3>
+                                    </header>
+
+                                    <div class="passion-travel-copy">
+                                        <p>
+                                            I love discovering new places and cultures. I use my vacations to travel and compete abroad so I can discover new cultures and places.
+                                        </p>
+                                    </div>
+
+                                    <div class="passion-travel-map" id="passion-travel-map" aria-live="polite"></div>
+                                </div>
+                            </div>
+                        </article>
+
+                    </div>
+                </div>
+
+                <div class="passions-carousel-pagination" role="tablist"></div>
+            </div>
+        </section>
+
         <section id="contact" class="contact-section">
             <h2 class="section-title">Contact Me</h2>
             
@@ -272,6 +370,15 @@
     const hiddenElements = document.querySelectorAll('.reveal');
     hiddenElements.forEach((el) => observer.observe(el));
 </script>
+
+<script src="puzzle-data.js"></script>
+<script src="assets/vendor/jquery.min.js"></script>
+<script src="assets/vendor/chess/chess.min.js"></script>
+<script src="assets/vendor/chess/chessboard-1.0.0.min.js"></script>
+<script src="puzzle.js"></script>
+<script src="passions-carousel.js"></script>
+<script src="sports-stage.js"></script>
+<script src="travel-map.js"></script>
 
 </body>
 </html>
