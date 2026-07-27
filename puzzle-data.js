@@ -1,1 +1,1 @@
-window.__PUZZLE__={"id":"FAlmo","fen":"3r1rk1/1p2bp1p/pq4p1/3pB3/3n4/3B3Q/PP3PPP/1R2R1K1 w - - 0 1","solution":["e5d4","b6d4","e1e7"],"rating":1823};
+window.__PUZZLE__={"id":"uwVsF","fen":"1r1r2k1/p2b1ppp/Q3p3/n1q5/8/2PR1NP1/P3PPBP/R5K1 b - - 1 1","solution":["b8b6","a6a7","b6b1","a1b1","c5a7"],"rating":2087};
