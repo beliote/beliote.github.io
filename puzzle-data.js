@@ -1,1 +1,1 @@
-window.__PUZZLE__={"id":"9zIJH","fen":"r5k1/pp3rpp/1qnN1n2/4p1N1/4P1b1/8/PP2QPPP/R2R2K1 w - - 0 1","solution":["e2c4","c6d8","d6f7","d8f7","c4f7"],"rating":1801};
+window.__PUZZLE__={"id":"DmxiP","fen":"6kr/2p1b1pp/p1Bq4/1pnNp3/8/1P2BR1N/P1K3PP/8 w - - 1 1","solution":["d5e7","d6e7","c6d5","c5e6","h3g5"],"rating":2092};
