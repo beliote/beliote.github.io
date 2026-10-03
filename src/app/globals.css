@@ -1,26 +1,289 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --paper: #090d14;
+  --ink: #e7edf8;
+  --rule: #1f293d;
+  --mute: #93a0b8;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-rule: var(--rule);
+  --color-mute: var(--mute);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-pixel: var(--font-pixelify), var(--font-geist-sans), sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  color-scheme: dark;
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100%;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-geist-sans), sans-serif;
+}
+
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  pointer-events: none;
+}
+
+body::before {
+  inset: 0;
+  z-index: 0;
+  background-image:
+    linear-gradient(to right, rgba(31, 41, 61, 0.7) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(31, 41, 61, 0.7) 1px, transparent 1px);
+  background-size: 88px 88px;
+  mask-image: radial-gradient(ellipse at 78% 0%, #000 8%, transparent 68%);
+}
+
+body::after {
+  top: -18vh;
+  right: -8vw;
+  z-index: 0;
+  width: 52vw;
+  height: 52vh;
+  background: radial-gradient(circle, rgba(34, 211, 238, 0.08), transparent 66%);
+}
+
+body > * {
+  position: relative;
+  z-index: 1;
+}
+
+.grain {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  pointer-events: none;
+  background-image:
+    repeating-linear-gradient(
+      to bottom,
+      rgba(231, 237, 248, 0.035) 0px,
+      rgba(231, 237, 248, 0.035) 1px,
+      transparent 1px,
+      transparent 3px
+    ),
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.55'/></svg>");
+  opacity: 0.22;
+}
+
+.glitch {
+  text-shadow:
+    1px 0 rgba(34, 211, 238, 0.55),
+    -1px 0 rgba(52, 211, 153, 0.4);
+}
+
+.pixel-card {
+  border: 1px solid rgba(52, 211, 153, 0.28);
+  border-radius: 1.15rem;
+  background:
+    linear-gradient(180deg, rgba(52, 211, 153, 0.07), transparent 42%),
+    rgba(17, 22, 34, 0.78);
+  box-shadow: 4px 4px 0 #121a2b;
+}
+
+.chrono {
+  position: relative;
+  display: grid;
+  gap: 0.85rem;
+  margin: 0;
+  padding: 0 0 0 1.15rem;
+  list-style: none;
+}
+
+.chrono::before {
+  content: "";
+  position: absolute;
+  top: 0.35rem;
+  bottom: 0.35rem;
+  left: 0.18rem;
+  width: 3px;
+  background: repeating-linear-gradient(#34d399 0 4px, transparent 4px 8px);
+}
+
+.chrono-stop {
+  position: relative;
+}
+
+.chrono-node {
+  position: absolute;
+  top: 1.05rem;
+  left: -1.15rem;
+  z-index: 1;
+  width: 0.55rem;
+  height: 0.55rem;
+  background: #34d399;
+  box-shadow: 2px 2px 0 #05281c;
+}
+
+.map-stage {
+  overflow: hidden;
+}
+
+.map-glitch {
+  animation: map-jitter 5.2s steps(1, end) infinite;
+}
+
+.map-scan {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 3px,
+    rgba(9, 13, 20, 0.35) 3px,
+    rgba(9, 13, 20, 0.35) 4px
+  );
+}
+
+.map-pin {
+  animation: pin-pulse 1.6s ease-in-out infinite;
+}
+
+.beacon {
+  box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.7);
+  animation: beacon 2.4s ease-in-out infinite;
+}
+
+@keyframes pin-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+
+@keyframes beacon {
+  0%,
+  100% {
+    opacity: 1;
+    box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.45);
+  }
+  50% {
+    opacity: 0.45;
+    box-shadow: 0 0 0 5px rgba(52, 211, 153, 0);
+  }
+}
+
+@keyframes map-jitter {
+  0%,
+  74%,
+  100% {
+    transform: none;
+    filter: none;
+  }
+  76% {
+    transform: translateX(-3px);
+    filter: drop-shadow(2px 0 rgba(34, 211, 238, 0.75));
+  }
+  80% {
+    transform: translateX(3px);
+    filter: drop-shadow(-2px 0 rgba(52, 211, 153, 0.7));
+  }
+  84% {
+    transform: translate(1px, -1px);
+    filter: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .chrono {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    padding: 1.45rem 0 0;
+  }
+
+  .chrono::before {
+    top: 0.22rem;
+    bottom: auto;
+    left: 16%;
+    width: auto;
+    height: 3px;
+    right: 16%;
+    background: repeating-linear-gradient(90deg, #34d399 0 4px, transparent 4px 8px);
+  }
+
+  .chrono-node {
+    top: -1.42rem;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .pixel-card {
+    transition: transform 160ms steps(2, end);
+  }
+
+  .pixel-card:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 #121a2b;
+  }
+}
+
+::selection {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+:focus-visible {
+  outline: 1px solid var(--ink);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .beacon,
+  .map-pin,
+  .map-glitch {
+    animation: none;
+  }
+}
+
+@media print {
+  :root {
+    --paper: #ffffff;
+    --ink: #161616;
+    --rule: #d8d8d4;
+    --mute: #5e5e5a;
+  }
+
+  .no-print {
+    display: none;
+  }
+
+  body {
+    background: white;
+  }
+
+  body::before,
+  body::after {
+    display: none;
+  }
+
+  .map-glitch,
+  .map-pin,
+  .beacon {
+    animation: none;
+  }
+
+  a {
+    text-decoration: none;
+  }
 }
