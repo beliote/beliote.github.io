@@ -114,7 +114,9 @@ export function LichessDailyCard() {
   useEffect(() => {
     let cancelled = false;
 
-    fetch("/api/lichess-puzzle")
+    fetch("https://lichess.org/api/puzzle/daily", {
+      headers: { Accept: "application/json" },
+    })
       .then(async (response) => {
         if (!response.ok) {
           throw new Error("unavailable");
