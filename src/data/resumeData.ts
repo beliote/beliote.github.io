@@ -105,7 +105,7 @@ const fr: ResumeContent = {
     linkedin: "LinkedIn",
     email: "Email",
     cv: "CV PDF",
-    cvLabel: "Ouvrir l'impression pour enregistrer le CV en PDF",
+    cvLabel: "Télécharger le CV au format PDF",
   },
   education: {
     index: "01",
@@ -277,7 +277,7 @@ const en: ResumeContent = {
     linkedin: "LinkedIn",
     email: "Email",
     cv: "CV PDF",
-    cvLabel: "Open the print dialog to save the CV as PDF",
+    cvLabel: "Download the CV as a PDF",
   },
   education: {
     index: "01",

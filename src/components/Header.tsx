@@ -49,14 +49,14 @@ export function Header() {
           >
             {t.links.email}
           </a>
-          <button
-            type="button"
-            onClick={() => window.print()}
+          <a
+            href="/cv/BurgalatEliot_CV.pdf"
+            download="BurgalatEliot_CV.pdf"
             aria-label={t.links.cvLabel}
             className="no-print rounded-lg border border-emerald-400/50 px-2 py-1 font-pixel text-sm text-emerald-300"
           >
             {t.links.cv}
-          </button>
+          </a>
         </div>
       </div>
     </header>
